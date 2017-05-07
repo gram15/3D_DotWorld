@@ -1,4 +1,4 @@
-' 3D DotWorld Engine, by GRom 2017 jamiroval@gmail.com
+' 3D DotWorld Engine, by GRom 2017
 
 ' sub and functions
 Declare Function projector_x(x_c as double, y_c as double, z_c as double, f_c as double) as double
