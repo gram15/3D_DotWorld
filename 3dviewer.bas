@@ -17,6 +17,7 @@ Declare Function get_b(rgb_c as Uinteger) as UByte
 Declare Sub pset3d(x as integer, y as integer, z as double, c as integer)
 ' it relies on global cam position and orientation
 Declare Sub pix3d(x as double, y as double, z as double, c as integer)
+Declare Sub line3d(x1 as double, y1 as double, z1 as double, x2 as double, y2 as double, z2 as double, c as integer)
 Declare Sub redraw_all()
 Declare Sub draw_user_pos(x_us as double, y_us as double, z_us as double, iHelp as integer)
 Declare Sub setpixel(x as integer, y as integer, col as integer)
@@ -78,7 +79,7 @@ bUsePoles = FALSE
 Dim shared As integer iDepth, iScreenWidth, iScreenHeight, iXc, iYc
 
 'init
-screen 17, 24 '(1024x768)
+screen 20, 24 '(1024x768)
 ScreenInfo iScreenWidth, iScreenHeight, iDepth,,,,
 ' center of the screen
 iXc = iScreenWidth/2
@@ -114,18 +115,18 @@ x_cam = -500
 y_cam = 55
 z_cam = 300
 
-'x_cam = -500
-'y_cam = 675
-'z_cam = 526
+x_cam = -735
+y_cam = 658
+z_cam = 761
 
 ' cam orientation
 a1_cam = 0 'plane zx
 a2_cam = 0 'plane yz
 a3_cam = 0 'plane xy
 
-'a1_cam = PI*45/180 'plane zx
-'a2_cam = PI*55/180 'plane yz
-'a3_cam = 0 'plane xy
+a1_cam = PI*45/180 'plane zx
+a2_cam = PI*25/180 'plane yz
+a3_cam = 0 'plane xy
 
 
 ' cam focus (850 on 1024)
@@ -849,4 +850,9 @@ Sub raycast(img as ULong Ptr, bEnableRayTracing as boolean)
          
       next jc
    next ic
+End Sub
+
+' this function uses the bresenham algorithm to trace a line in 3D space, but using interpolation tecniques to calculate depth
+Sub line3d(x1 as double, y1 as double, z1 as double, x2 as double, y2 as double, z2 as double, c as integer)
+    print "Do nothing"
 End Sub
